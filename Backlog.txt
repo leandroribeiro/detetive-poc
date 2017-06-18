@@ -1,0 +1,10 @@
+1 - Suspeitos
+	DartVader
+
+2 - Locais
+
+3 - Armas
+
+
+Para cada testemunha é passada uma teoria de @Suspeito, @Local e @Arma, se ambos estão errados ele responde 1, 2 ou 3 aleatoriamente, se somente @Suspeito e @Local está errado ele responde 1 ou 2 aleatoriamente, se todos estão certos ele responde 0.
+
