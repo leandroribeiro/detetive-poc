@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Detetive.Infrastructure")]
+[assembly: AssemblyTitle("Detetive.Console")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Detetive.Infrastructure")]
+[assembly: AssemblyProduct("Detetive.Console")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bea82f73-ae0b-4843-a9f5-dae4f45b5946")]
+[assembly: Guid("33afa232-5e55-4331-b3aa-32f01911e541")]
 
 // Version information for an assembly consists of the following four values:
 //

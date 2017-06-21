@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Detetive.Domain.Entities;
+using Detetive.Domain.Repositories;
 using Moq;
 
 namespace Detetive.Domain.Tests
