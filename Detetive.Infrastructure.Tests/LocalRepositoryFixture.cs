@@ -19,7 +19,7 @@ namespace Detetive.Infrastructure.Tests
         [SetUp]
         public void Initializer()
         {
-            _context = new DetetiveContext();
+            _context = new DetetiveContext(System.Configuration.ConfigurationManager.ConnectionStrings["DetetiveContext"].ConnectionString);
             _repository = new LocalRepository(_context);
         }
 
