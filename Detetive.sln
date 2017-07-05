@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Detetive.Domain.Tests", "Detetive.Domain.Tests\Detetive.Domain.Tests.csproj", "{1625C854-0895-44C2-B320-88E968D23825}"
 EndProject
@@ -25,6 +25,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Detetive.Console", "Detetive.Console\Detetive.Console.csproj", "{33AFA232-5E55-4331-B3AA-32F01911E541}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distributed Services", "Distributed Services", "{BC50A4F1-260E-4900-825B-0C8011E760DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Detetive.WebAPI", "Detetive.WebAPI\Detetive.WebAPI.csproj", "{C24DF9F6-DBAC-4B79-A9BD-D32653B81B8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +54,10 @@ Global
 		{33AFA232-5E55-4331-B3AA-32F01911E541}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33AFA232-5E55-4331-B3AA-32F01911E541}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33AFA232-5E55-4331-B3AA-32F01911E541}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C24DF9F6-DBAC-4B79-A9BD-D32653B81B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C24DF9F6-DBAC-4B79-A9BD-D32653B81B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C24DF9F6-DBAC-4B79-A9BD-D32653B81B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C24DF9F6-DBAC-4B79-A9BD-D32653B81B8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +68,6 @@ Global
 		{4F878118-C8A7-4244-82A3-9CE3128869D2} = {AC60F833-C813-4A73-B8AA-DDB9F6E42CFA}
 		{BEA82F73-AE0B-4843-A9F5-DAE4F45B5946} = {AC60F833-C813-4A73-B8AA-DDB9F6E42CFA}
 		{33AFA232-5E55-4331-B3AA-32F01911E541} = {47D2D008-016B-42BD-864A-7F168ED3222A}
+		{C24DF9F6-DBAC-4B79-A9BD-D32653B81B8B} = {BC50A4F1-260E-4900-825B-0C8011E760DC}
 	EndGlobalSection
 EndGlobal
