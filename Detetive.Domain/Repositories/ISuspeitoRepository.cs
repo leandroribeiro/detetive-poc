@@ -7,5 +7,6 @@ namespace Detetive.Domain.Repositories
     {
         Suspeito Obter(int suspeitoID);
         IEnumerable<Suspeito> Obter();
+        Suspeito ObterAleatorio();
     }
 }

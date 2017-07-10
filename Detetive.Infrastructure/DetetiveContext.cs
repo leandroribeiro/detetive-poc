@@ -14,6 +14,7 @@ namespace Detetive.Infrastructure
         public DbSet<Arma> Armas { get; set; }
         public DbSet<Local> Locais { get; set; }
         public DbSet<Suspeito> Suspeitos { get; set; }
+        public DbSet<Caso> Casos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -21,9 +22,12 @@ namespace Detetive.Infrastructure
             //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             //modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
+            modelBuilder.Ignore<Testemunha>();
+
             modelBuilder.Configurations.Add(new ArmaMap());
             modelBuilder.Configurations.Add(new LocalMap());
             modelBuilder.Configurations.Add(new SuspeitoMap());
+            modelBuilder.Configurations.Add(new CasoMap());
 
         }
 

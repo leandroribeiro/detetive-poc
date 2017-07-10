@@ -7,5 +7,6 @@ namespace Detetive.Domain.Repositories
     {
         Local Obter(int localID);
         IEnumerable<Local> Obter();
+        Local ObterAleatorio();
     }
 }

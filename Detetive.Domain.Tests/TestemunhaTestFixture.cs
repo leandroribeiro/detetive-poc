@@ -7,20 +7,27 @@ using System.Threading.Tasks;
 using Detetive.Domain.Entities;
 using Detetive.Domain.Repositories;
 using Moq;
+using Detetive.Domain.Services;
 
 namespace Detetive.Domain.Tests
 {
     [TestFixture]
     public class TestemunhaTestFixture
     {
+        private ICasoRepository _casoRepo;
         private ISuspeitoRepository _suspeitoRepo;
         private ILocalRepository _localRepo;
         private IArmaRepository _armaRepo;
+        private ICasoService _service;
         private Caso _caso;
 
         [SetUp]
         public void TestInitializer()
         {
+            var mockCasoRepo = new Mock<ICasoRepository>();
+            //mockCasoRepo.Setup(x=>x.Obter())
+            _casoRepo = mockCasoRepo.Object;
+
             var mockSuspeitoRepo = new Mock<ISuspeitoRepository>();
             mockSuspeitoRepo.Setup(x => x.Obter(1)).Returns(new Suspeito("Darth Vader"));
             mockSuspeitoRepo.Setup(x => x.Obter(2)).Returns(new Suspeito("Darth Maul"));
@@ -69,13 +76,14 @@ namespace Detetive.Domain.Tests
             mockArmaRepo.Setup(x => x.Obter(10)).Returns(new Arma("Lightsaber"));
             _armaRepo = mockArmaRepo.Object;
 
+            _service = new CasoService(_casoRepo, _suspeitoRepo, _armaRepo, _localRepo);
+
             var suspeito = _suspeitoRepo.Obter(1);
             var local = _localRepo.Obter(1);
             var arma = _armaRepo.Obter(1);
-            _caso = new Caso(suspeito, local, arma);
-
             var testemunha = new Testemunha();
-            _caso.AtribuirTestemunha(testemunha);
+
+            _caso = new Caso(suspeito, local, arma, testemunha);
         }
 
         [Test]
@@ -89,7 +97,7 @@ namespace Detetive.Domain.Tests
             var teoria = new Teoria(suspeito, local, arma);
 
             //Act
-            var resposta = _caso.Testemunha.Interrogar(teoria);
+            var resposta = _service.InterrogarTestemunha(_caso, teoria);
 
 
             //Assert
@@ -107,7 +115,7 @@ namespace Detetive.Domain.Tests
             var teoria = new Teoria(suspeito, local, arma);
 
             //Act
-            var resposta = _caso.Testemunha.Interrogar(teoria);
+            var resposta = _service.InterrogarTestemunha(_caso, teoria);
 
 
             //Assert
@@ -125,7 +133,7 @@ namespace Detetive.Domain.Tests
             var teoria = new Teoria(suspeito, local, arma);
 
             //Act
-            var resposta = _caso.Testemunha.Interrogar(teoria);
+            var resposta = _service.InterrogarTestemunha(_caso, teoria);
 
 
             //Assert
@@ -143,7 +151,7 @@ namespace Detetive.Domain.Tests
             var teoria = new Teoria(suspeito, local, arma);
 
             //Act
-            var resposta = _caso.Testemunha.Interrogar(teoria);
+            var resposta = _service.InterrogarTestemunha(_caso, teoria);
 
 
             //Assert
@@ -161,7 +169,7 @@ namespace Detetive.Domain.Tests
             var teoria = new Teoria(suspeito, local, arma);
 
             //Act
-            var resposta = _caso.Testemunha.Interrogar(teoria);
+            var resposta = _service.InterrogarTestemunha(_caso, teoria);
 
 
             //Assert

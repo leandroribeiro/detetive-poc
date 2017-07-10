@@ -43,6 +43,7 @@
     <Compile Include="Entities\Arma.cs" />
     <Compile Include="Entities\Caso.cs" />
     <Compile Include="Repositories\IArmaRepository.cs" />
+    <Compile Include="Repositories\ICasoRepository.cs" />
     <Compile Include="Repositories\ILocalRepository.cs" />
     <Compile Include="Repositories\ISuspeitoRepository.cs" />
     <Compile Include="Entities\Local.cs" />
@@ -50,6 +51,8 @@
     <Compile Include="Entities\Suspeito.cs" />
     <Compile Include="Entities\Teoria.cs" />
     <Compile Include="Entities\Testemunha.cs" />
+    <Compile Include="Services\CasoService.cs" />
+    <Compile Include="Services\ICasoService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

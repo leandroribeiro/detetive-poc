@@ -15,33 +15,23 @@ namespace Detetive.Infrastructure.Migrations
 
         protected override void Seed(DetetiveContext context)
         {
-            //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            if (!context.Armas.Any())
+                context.Armas.AddOrUpdate(x => x.ID,
+                    new Arma("Fusioncutter"),
+                    new Arma("Wrist Rockets"),
+                    new Arma("Flamethower "),
+                    new Arma("Missile Launchers"),
+                    new Arma("Ryyk Blades"),
+                    new Arma("Flechette Launcher"),
+                    new Arma("Force Pike"),
+                    new Arma("Bowcaster "),
+                    new Arma("Blaster"),
+                    new Arma("Lightsaber")
+                );
 
-            context.Armas.AddOrUpdate(x => x.ID,
-                new Arma("Fusioncutter"),
-                new Arma("Wrist Rockets"),
-                new Arma("Flamethower "),
-                new Arma("Missile Launchers"),
-                new Arma("Ryyk Blades"),
-                new Arma("Flechette Launcher"),
-                new Arma("Force Pike"),
-                new Arma("Bowcaster "),
-                new Arma("Blaster"),
-                new Arma("Lightsaber")
-            );
-
-            context.Locais.AddOrUpdate(x => x.ID,
+            if (!context.Locais.Any())
+                context.Locais.AddOrUpdate(x => x.ID,
                 new Local("Ahch-To"),
                 new Local("Alderaan"),
                 new Local("Bespin"),
@@ -58,7 +48,8 @@ namespace Detetive.Infrastructure.Migrations
                 new Local("Hosnian Prime")
             );
 
-            context.Suspeitos.AddOrUpdate(x => x.ID,
+            if (!context.Suspeitos.Any())
+                context.Suspeitos.AddOrUpdate(x => x.ID,
                 new Suspeito("Darth Vader"),
                 new Suspeito("Darth Maul"),
                 new Suspeito("Darth Sidious"),

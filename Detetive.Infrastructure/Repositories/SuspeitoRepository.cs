@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Detetive.Domain.Entities;
 using Detetive.Domain.Repositories;
+using System.Data.Entity.SqlServer;
 
 namespace Detetive.Infrastructure.Repositories
 {
@@ -27,5 +28,9 @@ namespace Detetive.Infrastructure.Repositories
             return _context.Suspeitos.ToList();
         }
 
+        public Suspeito ObterAleatorio()
+        {
+            return _context.Suspeitos.OrderBy(o => SqlFunctions.Rand()).First();
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace Detetive.Domain.Repositories
     {
         Arma Obter(int armaID);
         IEnumerable<Arma> Obter();
+        Arma ObterAleatorio();
     }
 }
