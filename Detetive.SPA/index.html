@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detetive POC</title>
+    <link rel="stylesheet" href="https://unpkg.com/select2@4.0.3/dist/css/select2.min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <div id="app">
+        <p>Armas</p>
+        <select2 :options="armas" v-model="armaSelecionada">
+            <option disabled value="0">Selecione</option>
+        </select2>
+        <p>Locais</p>
+        <select2 :options="locais" v-model="localSelecionado">
+            <option disabled value="0">Selecione</option>
+        </select2>
+        <p>Suspeitos</p>
+        <select2 :options="suspeitos" v-model="suspeitoSelecionado">
+            <option disabled value="0">Selecione</option>
+        </select2>
+
+        <button id="btnInterrogar" @click="interrogar">Integorrar</button>
+    </div>
+
+    <script type="text/x-template" id="select2-template">
+        <select>
+            <slot></slot>
+        </select>
+    </script>
+
+    <script src="https://unpkg.com/jquery@3.1.1" type="text/javascript"></script>
+    <script src="https://unpkg.com/select2@4.0.3" type="text/javascript"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+</body>
+
+</html>

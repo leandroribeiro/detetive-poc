@@ -1,0 +1,23 @@
+{
+  "name": "detetive-poc",
+  "version": "1.0.0",
+  "description": "Prova de conceitos com lógica do jogo detetive",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "keywords": [
+    "detetive",
+    "prova",
+    "poc"
+  ],
+  "author": "Leandro Ribeiro",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "axios": "^0.16.2"
+  }
+}
