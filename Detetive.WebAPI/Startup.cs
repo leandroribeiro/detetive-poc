@@ -42,6 +42,14 @@ namespace Detetive.WebAPI
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+
+            // CORS
+            // https://docs.asp.net/en/latest/security/cors.html
+            app.UseCors(builder =>
+                    builder.WithOrigins("http://localhost:3000", "http://localhost:5000", "http://www.myclientserver.com")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+
             app.UseMvc();
         }
     }
