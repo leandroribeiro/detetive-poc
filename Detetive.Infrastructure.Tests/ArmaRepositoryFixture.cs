@@ -46,5 +46,21 @@ namespace Detetive.Infrastructure.Tests
             Assert.IsTrue(resultado.Any());
             Assert.IsTrue(resultado.Count() == 10);
         }
+
+        [Test]
+        public void Deve_Obter_Armas_Aleatoriamente()
+        {
+            //Arrange
+            Arma resultado1;
+            Arma resultado2;
+        
+
+            //Act
+            resultado1 = _repository.ObterAleatorio();
+            resultado2 = _repository.ObterAleatorio();
+
+            //Assert
+            Assert.AreNotEqual(resultado1.GetHashCode(), resultado2.GetHashCode());
+        }
     }
 }

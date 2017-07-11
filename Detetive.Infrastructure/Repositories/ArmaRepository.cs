@@ -29,7 +29,7 @@ namespace Detetive.Infrastructure.Repositories
 
         public Arma ObterAleatorio()
         {
-            return _context.Armas.OrderBy(o => SqlFunctions.Rand()).First();
+            return _context.Armas.OrderBy(o => Guid.NewGuid()).First();
         }
     }
 }

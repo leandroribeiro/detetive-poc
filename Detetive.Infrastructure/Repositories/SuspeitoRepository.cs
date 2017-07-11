@@ -30,7 +30,7 @@ namespace Detetive.Infrastructure.Repositories
 
         public Suspeito ObterAleatorio()
         {
-            return _context.Suspeitos.OrderBy(o => SqlFunctions.Rand()).First();
+            return _context.Suspeitos.OrderBy(o => Guid.NewGuid()).First();
         }
     }
 }
