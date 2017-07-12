@@ -20,6 +20,7 @@ namespace Detetive.Infrastructure.Repositories
         public void Inserir(Caso caso)
         {
             _context.Casos.Add(caso);
+            _context.SaveChanges();//TODO
         }
 
         public Caso Obter(int casoID)
