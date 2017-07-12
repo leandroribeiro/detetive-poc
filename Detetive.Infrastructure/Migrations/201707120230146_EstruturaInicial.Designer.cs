@@ -7,13 +7,13 @@ namespace Detetive.Infrastructure.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddCaso : IMigrationMetadata
+    public sealed partial class EstruturaInicial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddCaso));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(EstruturaInicial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707102315378_AddCaso"; }
+            get { return "201707120230146_EstruturaInicial"; }
         }
         
         string IMigrationMetadata.Source

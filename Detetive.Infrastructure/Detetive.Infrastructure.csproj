@@ -54,13 +54,9 @@
     <Compile Include="DetetiveContext.cs" />
     <Compile Include="Mappings\LocalMap.cs" />
     <Compile Include="MigrationsContextFactory.cs" />
-    <Compile Include="Migrations\201706210226136_CriacaoInicial.cs" />
-    <Compile Include="Migrations\201706210226136_CriacaoInicial.Designer.cs">
-      <DependentUpon>201706210226136_CriacaoInicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707102315378_AddCaso.cs" />
-    <Compile Include="Migrations\201707102315378_AddCaso.Designer.cs">
-      <DependentUpon>201707102315378_AddCaso.cs</DependentUpon>
+    <Compile Include="Migrations\201707120230146_EstruturaInicial.cs" />
+    <Compile Include="Migrations\201707120230146_EstruturaInicial.Designer.cs">
+      <DependentUpon>201707120230146_EstruturaInicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -82,11 +78,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706210226136_CriacaoInicial.resx">
-      <DependentUpon>201706210226136_CriacaoInicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707102315378_AddCaso.resx">
-      <DependentUpon>201707102315378_AddCaso.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707120230146_EstruturaInicial.resx">
+      <DependentUpon>201707120230146_EstruturaInicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
