@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Detetive.WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class ArmaController
+    public class ArmaController : Controller
     {
         private IArmaRepository _repository {get; set;}
 
@@ -21,5 +21,7 @@ namespace Detetive.WebAPI.Controllers
         {
             return _repository.Obter();
         }
+
     }
+
 }

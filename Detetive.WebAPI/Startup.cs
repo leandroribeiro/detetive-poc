@@ -1,4 +1,5 @@
 ﻿using Detetive.Domain.Repositories;
+using Detetive.Domain.Services;
 using Detetive.Infrastructure;
 using Detetive.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -34,6 +35,8 @@ namespace Detetive.WebAPI
             services.AddTransient<IArmaRepository, ArmaRepository>();
             services.AddTransient<ILocalRepository, LocalRepository>();
             services.AddTransient<ISuspeitoRepository, SuspeitoRepository>();
+            services.AddTransient<ICasoRepository, CasoRepository>();
+            services.AddTransient<ICasoService, CasoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
