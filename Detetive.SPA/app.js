@@ -13,6 +13,7 @@ Vue.component('select2', {
             // emit event on change.
             .on('change', function () {
                 vm.$emit('input', this.value)
+                console.log(this.value);
             })
     },
 
@@ -37,6 +38,8 @@ var vm = new Vue({
 
     data: {
 
+        caso: null,
+
         armaSelecionada: 0,
         armas: [],
 
@@ -44,48 +47,71 @@ var vm = new Vue({
         locais: [],
 
         suspeitoSelecionado: 0,
-        suspeitos: []
-    },
+        suspeitos: [],
 
-
-    methods: {
-        interrogar() {
-            alert('teste');
-        }
+        resposta: -1
     },
 
     created() {
-
-        axios.get(`http://localhost:17762/api/arma`)
-            .then(response => {
-                // JSON responses are automatically parsed.
-                this.armas = response.data.map(x => { return { id: x.id, text: x.nome } });
-            })
-            .catch(e => {
-                //this.errors.push(e)
-                console.error(e);
-            });
-
-        axios.get(`http://localhost:17762/api/local`)
-            .then(response => {
-                // JSON responses are automatically parsed.
-                this.locais = response.data.map(x => { return { id: x.id, text: x.nome } });
-            })
-            .catch(e => {
-                //this.errors.push(e)
-                console.error(e);
-            });
-
-        axios.get(`http://localhost:17762/api/suspeito`)
-            .then(response => {
-                // JSON responses are automatically parsed.
-                this.suspeitos = response.data.map(x => { return { id: x.id, text: x.nome } });
-            })
-            .catch(e => {
-                //this.errors.push(e)
-                console.error(e);
-            });
+        this.carregarDados();
     },
 
+    methods: {
+        interrogar: function () {
+
+            axios({
+                method: 'post',
+                url: 'http://localhost:17762/api/caso/interrogar',
+                params: {
+                    casoID: this.caso.id,
+                    armaID: this.armaSelecionada,
+                    localID: this.localSelecionado,
+                    suspeitoID: this.suspeitoSelecionado
+                }
+            })
+                .then(function (response) {
+                    console.log(response);
+                    console.log(response.data);
+                    this.resposta = response.data;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
+
+        carregarDados() {
+            axios.get(`http://localhost:17762/api/caso/novo`)
+                .then(response => {
+                    this.caso = response.data;
+                })
+                .catch(e => {
+                    console.error(e);
+                });
+
+            axios.get(`http://localhost:17762/api/arma`)
+                .then(response => {
+                    this.armas = response.data.map(x => { return { id: x.id, text: x.nome } });
+                })
+                .catch(e => {
+                    console.error(e);
+                });
+
+            axios.get(`http://localhost:17762/api/local`)
+                .then(response => {
+                    this.locais = response.data.map(x => { return { id: x.id, text: x.nome } });
+                })
+                .catch(e => {
+                    console.error(e);
+                });
+
+            axios.get(`http://localhost:17762/api/suspeito`)
+                .then(response => {
+                    this.suspeitos = response.data.map(x => { return { id: x.id, text: x.nome } });
+                })
+                .catch(e => {
+                    console.error(e);
+                });
+        }
+    },
 
 });

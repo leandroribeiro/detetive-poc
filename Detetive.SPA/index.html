@@ -12,6 +12,8 @@
 
 <body>
     <div id="app">
+        <h2>Caso número [<span v-text="caso.id"></span>] aberto em {{ caso.dataAbertura }}</h2>
+
         <p>Armas</p>
         <select2 :options="armas" v-model="armaSelecionada">
             <option disabled value="0">Selecione</option>
@@ -26,6 +28,8 @@
         </select2>
 
         <button id="btnInterrogar" @click="interrogar">Integorrar</button>
+
+        <h3 v-show="resposta >= 0" v-text="resposta"></h3>
     </div>
 
     <script type="text/x-template" id="select2-template">
