@@ -44,6 +44,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Detetive.SPA", "Detetive.SP
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "9304"
+		SlnRelativePath = "Detetive.SPA\"
 	EndProjectSection
 EndProject
 Global
