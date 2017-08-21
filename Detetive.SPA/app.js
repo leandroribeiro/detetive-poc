@@ -1,55 +1,55 @@
-Vue.component('select2', {
-    props: ['options', 'value'],
+class Form {
 
-    template: '#select2-template',
+    constructor(data) {
+        this.originalData = data;
 
-    mounted: function () {
-        var vm = this
-        $(this.$el)
-            // init select2
-            .select2({ data: this.options })
-            .val(this.value)
-            .trigger('change')
-            // emit event on change.
-            .on('change', function () {
-                vm.$emit('input', this.value)
-                console.log(this.value);
-            })
-    },
-
-    watch: {
-        value: function (value) {
-            // update value
-            $(this.$el).val(value).trigger('change');
-        },
-        options: function (options) {
-            // update options
-            $(this.$el).select2({ data: options })
+        for (let field in data) {
+            this[field] = data[field];
         }
-    },
-
-    destroyed: function () {
-        $(this.$el).off().select2('destroy')
     }
-})
+
+    reset() {
+        for (let field in this.originalData) {
+            this[field] = '';
+        }
+    }
+
+    data() {
+        let data = {};
+
+        for (let property in this.originalData) {
+            data[property] = this[property];
+        }
+
+        //delete data.errors;
+
+        return data;
+    }
+
+}
 
 var vm = new Vue({
     el: '#app',
 
     data: {
-
-        caso: null,
-
-        armaSelecionada: 0,
-        armas: [],
-
-        localSelecionado: 0,
-        locais: [],
-
-        suspeitoSelecionado: 0,
-        suspeitos: [],
-
-        resposta: -1
+        form: new Form({
+            caso: {
+                id: 0,
+                dataAbertura: ''
+            },
+    
+            armaSelecionada: 0,
+            armas: [],
+    
+            localSelecionado: 0,
+            locais: [],
+    
+            suspeitoSelecionado: 0,
+            suspeitos: [],
+    
+            resposta: -1
+        })
+        
     },
 
     created() {
@@ -60,29 +60,30 @@ var vm = new Vue({
         interrogar: function () {
 
             axios({
-                method: 'post',
-                url: 'http://localhost:17762/api/caso/interrogar',
-                params: {
-                    casoID: this.caso.id,
-                    armaID: this.armaSelecionada,
-                    localID: this.localSelecionado,
-                    suspeitoID: this.suspeitoSelecionado
-                }
-            })
+                    method: 'post',
+                    url: 'http://localhost:17762/api/caso/interrogar',
+                    params: {
+                        casoID: this.form.caso.id,
+                        armaID: this.form.armaSelecionada,
+                        localID: this.form.localSelecionado,
+                        suspeitoID: this.form.suspeitoSelecionado
+                    }
+
+                })
                 .then(function (response) {
-                    console.log(response);
-                    console.log(response.data);
-                    this.resposta = response.data;
+                    vm.form.resposta = response.data;
+                    
                 })
                 .catch(function (error) {
                     console.log(error);
+
                 });
         },
 
         carregarDados() {
             axios.get(`http://localhost:17762/api/caso/novo`)
                 .then(response => {
-                    this.caso = response.data;
+                    this.form.caso = response.data;
                 })
                 .catch(e => {
                     console.error(e);
@@ -90,7 +91,12 @@ var vm = new Vue({
 
             axios.get(`http://localhost:17762/api/arma`)
                 .then(response => {
-                    this.armas = response.data.map(x => { return { id: x.id, text: x.nome } });
+                    this.form.armas = response.data.map(x => {
+                        return {
+                            value: x.id,
+                            text: x.nome
+                        }
+                    });
                 })
                 .catch(e => {
                     console.error(e);
@@ -98,7 +104,12 @@ var vm = new Vue({
 
             axios.get(`http://localhost:17762/api/local`)
                 .then(response => {
-                    this.locais = response.data.map(x => { return { id: x.id, text: x.nome } });
+                    this.form.locais = response.data.map(x => {
+                        return {
+                            value: x.id,
+                            text: x.nome
+                        }
+                    });
                 })
                 .catch(e => {
                     console.error(e);
@@ -106,7 +117,12 @@ var vm = new Vue({
 
             axios.get(`http://localhost:17762/api/suspeito`)
                 .then(response => {
-                    this.suspeitos = response.data.map(x => { return { id: x.id, text: x.nome } });
+                    this.form.suspeitos = response.data.map(x => {
+                        return {
+                            value: x.id,
+                            text: x.nome
+                        }
+                    });
                 })
                 .catch(e => {
                     console.error(e);
