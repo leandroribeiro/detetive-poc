@@ -16,29 +16,29 @@
 
             <h2>Caso nº <span v-text="form.caso.id"></span> em {{ form.caso.dataAbertura }}</h2>
 
-            <p>Armas</p>
-            <select v-model="form.armaSelecionada" required="required">
-                        <option value="">Selecione</option>
-                        <option v-for="option in form.armas" v-bind:value="option.value">
-                          {{ option.text }}
-                        </option>
-                    </select>
-
-            <p>Locais</p>
-            <select v-model="form.localSelecionado" required="required">
-                            <option value="">Selecione</option>
-                        <option v-for="option in form.locais" v-bind:value="option.value">
-                            {{ option.text }}
-                        </option>
-                    </select>
-
-            <p>Suspeitos</p>
+            <p>1 - Suspeitos</p>
             <select v-model="form.suspeitoSelecionado" required="required">
-                            <option value="">Selecione</option>
-                        <option v-for="option in form.suspeitos" v-bind:value="option.value">
-                            {{ option.text }}
-                        </option>
-                    </select>
+                <option value="">Selecione</option>
+                <option v-for="option in form.suspeitos" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+
+            <p>2 - Locais</p>
+            <select v-model="form.localSelecionado" required="required">
+                <option value="">Selecione</option>
+                <option v-for="option in form.locais" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+
+            <p>3 - Armas</p>
+            <select v-model="form.armaSelecionada" required="required">
+                <option value="">Selecione</option>
+                <option v-for="option in form.armas" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
 
             <button type="submit">Integorrar</button>
 
