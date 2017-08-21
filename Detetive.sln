@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Detetive.Domain.Tests", "Detetive.Domain.Tests\Detetive.Domain.Tests.csproj", "{1625C854-0895-44C2-B320-88E968D23825}"
 EndProject
@@ -22,13 +22,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Detetive.Infrastructure", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{47D2D008-016B-42BD-864A-7F168ED3222A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Detetive.Console", "Detetive.Console\Detetive.Console.csproj", "{33AFA232-5E55-4331-B3AA-32F01911E541}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distributed Services", "Distributed Services", "{BC50A4F1-260E-4900-825B-0C8011E760DC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Detetive.WebAPI", "Detetive.WebAPI\Detetive.WebAPI.csproj", "{C24DF9F6-DBAC-4B79-A9BD-D32653B81B8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Detetive.WebApp", "Detetive.WebApp\Detetive.WebApp.csproj", "{5E344039-5277-4647-B51B-2AEE52AD80D3}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Detetive.SPA", "Detetive.SPA\", "{34C01F97-6F5D-477F-BC6F-8550EE8A3F14}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_9304"
+		Debug.AspNetCompiler.PhysicalPath = "Detetive.SPA\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9304\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_9304"
+		Release.AspNetCompiler.PhysicalPath = "Detetive.SPA\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9304\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "9304"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,18 +68,14 @@ Global
 		{BEA82F73-AE0B-4843-A9F5-DAE4F45B5946}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEA82F73-AE0B-4843-A9F5-DAE4F45B5946}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEA82F73-AE0B-4843-A9F5-DAE4F45B5946}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33AFA232-5E55-4331-B3AA-32F01911E541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33AFA232-5E55-4331-B3AA-32F01911E541}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33AFA232-5E55-4331-B3AA-32F01911E541}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33AFA232-5E55-4331-B3AA-32F01911E541}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C24DF9F6-DBAC-4B79-A9BD-D32653B81B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C24DF9F6-DBAC-4B79-A9BD-D32653B81B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C24DF9F6-DBAC-4B79-A9BD-D32653B81B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C24DF9F6-DBAC-4B79-A9BD-D32653B81B8B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E344039-5277-4647-B51B-2AEE52AD80D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E344039-5277-4647-B51B-2AEE52AD80D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E344039-5277-4647-B51B-2AEE52AD80D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E344039-5277-4647-B51B-2AEE52AD80D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34C01F97-6F5D-477F-BC6F-8550EE8A3F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34C01F97-6F5D-477F-BC6F-8550EE8A3F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34C01F97-6F5D-477F-BC6F-8550EE8A3F14}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{34C01F97-6F5D-477F-BC6F-8550EE8A3F14}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,8 +85,7 @@ Global
 		{83405447-EF3E-4578-B606-FFB2F8D66B78} = {830652BE-5FDC-4188-A568-543533983DA9}
 		{4F878118-C8A7-4244-82A3-9CE3128869D2} = {AC60F833-C813-4A73-B8AA-DDB9F6E42CFA}
 		{BEA82F73-AE0B-4843-A9F5-DAE4F45B5946} = {AC60F833-C813-4A73-B8AA-DDB9F6E42CFA}
-		{33AFA232-5E55-4331-B3AA-32F01911E541} = {47D2D008-016B-42BD-864A-7F168ED3222A}
 		{C24DF9F6-DBAC-4B79-A9BD-D32653B81B8B} = {BC50A4F1-260E-4900-825B-0C8011E760DC}
-		{5E344039-5277-4647-B51B-2AEE52AD80D3} = {47D2D008-016B-42BD-864A-7F168ED3222A}
+		{34C01F97-6F5D-477F-BC6F-8550EE8A3F14} = {47D2D008-016B-42BD-864A-7F168ED3222A}
 	EndGlobalSection
 EndGlobal
