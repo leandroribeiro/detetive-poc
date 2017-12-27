@@ -63,6 +63,13 @@ namespace Detetive.Infrastructure.Migrations
                 new Suspeito("CAD BANE")
             );
 
+            if (!context.Casos.Any())
+            {
+                context.Casos.AddOrUpdate(x => x.ID, new Caso(1, 1, 1));
+            }
+
+            context.SaveChanges();
+
         }
     }
 }

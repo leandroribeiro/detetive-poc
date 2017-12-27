@@ -1,12 +1,13 @@
-﻿using Detetive.Domain.Entities;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Detetive.Domain.Entities;
 
 namespace Detetive.Domain.Repositories
 {
-    public interface ILocalRepository
+    public interface ILocalRepository : IRepository<Local>
     {
-        Local Obter(int localID);
-        IEnumerable<Local> Obter();
-        Local ObterAleatorio();
     }
 }

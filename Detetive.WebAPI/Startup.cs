@@ -29,7 +29,7 @@ namespace Detetive.WebAPI
         {
             services.AddScoped<DetetiveContext>(_ => new DetetiveContext(Configuration.GetConnectionString("DetetiveContext")));
 
-            // Add framework services.
+            // Insert framework services.
             services.AddMvc();
 
             services.AddTransient<IArmaRepository, ArmaRepository>();

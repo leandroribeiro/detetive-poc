@@ -1,19 +1,13 @@
-﻿using Detetive.Domain.Entities;
-using Detetive.Domain.Repositories;
-using Detetive.Domain.Services;
+﻿using Detetive.Domain.Services;
 using Detetive.WebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Detetive.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     public class CasoController : Controller
     {
-        private ICasoService _service { get; set; }
+        private ICasoService _service { get; }
 
         public CasoController(ICasoService service)
         {

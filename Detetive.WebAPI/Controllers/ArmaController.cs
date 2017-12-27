@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Detetive.Domain.Entities;
 using Detetive.Domain.Repositories;
+using Detetive.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Detetive.WebAPI.Controllers
@@ -8,18 +9,18 @@ namespace Detetive.WebAPI.Controllers
     [Route("api/[controller]")]
     public class ArmaController : Controller
     {
-        private IArmaRepository _repository {get; set;}
+        private readonly UnitOfWork _unitOfWork;
 
-        public ArmaController(IArmaRepository repository)
+        public ArmaController(UnitOfWork unitOfWork)
         {
-            _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
         // GET api/values
         [HttpGet]
         public IEnumerable<Arma> Get()
         {
-            return _repository.Obter();
+            return _unitOfWork.ArmaRepository.Get();
         }
 
     }

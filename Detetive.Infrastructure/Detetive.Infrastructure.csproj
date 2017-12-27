@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -64,8 +65,10 @@
     <Compile Include="Repositories\ArmaRepository.cs" />
     <Compile Include="Repositories\CasoRepository.cs" />
     <Compile Include="Repositories\LocalRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\SuspeitoRepository.cs" />
     <Compile Include="Mappings\SuspeitoMap.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

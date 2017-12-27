@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Detetive.Domain;
 using Detetive.Domain.Entities;
 using Detetive.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -13,18 +14,18 @@ namespace Detetive.WebAPI.Controllers
     [Route("api/[controller]")]
     public class SuspeitoController : Controller
     {
-        private readonly ISuspeitoRepository _repository;
+        private readonly IUnitOfWork _uow;
 
-        public SuspeitoController(ISuspeitoRepository repository)
+        public SuspeitoController(IUnitOfWork uow)
         {
-            _repository = repository;
+            _uow = uow;
         }
 
         // GET: api/values
         [HttpGet]
         public IEnumerable<Suspeito> Get()
         {
-            return _repository.Obter();
+            return _uow.SuspeitoRepository.Get();
         }
 
     }

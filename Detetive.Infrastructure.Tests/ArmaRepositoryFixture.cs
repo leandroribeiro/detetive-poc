@@ -26,7 +26,7 @@ namespace Detetive.Infrastructure.Tests
             int ID = 1;
 
             //Act
-            Arma resultado = _repository.Obter(ID);
+            Arma resultado = _repository.GetByID(ID);
 
             //Assert
             Assert.IsNotNull(resultado);
@@ -38,7 +38,7 @@ namespace Detetive.Infrastructure.Tests
             //Arrange
 
             //Act
-            var resultado = _repository.Obter();
+            var resultado = _repository.Get();
 
             //Assert
             Assert.IsNotNull(resultado);
@@ -56,8 +56,8 @@ namespace Detetive.Infrastructure.Tests
         
 
             //Act
-            resultado1 = _repository.ObterAleatorio();
-            resultado2 = _repository.ObterAleatorio();
+            resultado1 = _repository.GetRandom();
+            resultado2 = _repository.GetRandom();
 
             //Assert
             Assert.AreNotEqual(resultado1.GetHashCode(), resultado2.GetHashCode());
