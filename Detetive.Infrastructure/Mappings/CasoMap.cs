@@ -9,21 +9,21 @@ namespace Detetive.Infrastructure
         {
             this.ToTable("Casos");
 
-            this.HasKey<int>(a => a.ID);
+            this.HasKey<int>(a => a.Id);
 
             HasRequired(x => x.Arma)
                 .WithMany(x => x.Casos)
-                .HasForeignKey(x => x.ArmaID)
+                .HasForeignKey(x => x.ArmaId)
                 .WillCascadeOnDelete(false);
 
             HasRequired(x => x.Local)
                 .WithMany(x=>x.Casos)
-                .HasForeignKey(x=>x.LocalID)
+                .HasForeignKey(x=>x.LocalId)
                 .WillCascadeOnDelete(false);
 
             HasRequired(x => x.Suspeito)
                 .WithMany(x=>x.Casos)
-                .HasForeignKey(x=>x.SuspeitoID)
+                .HasForeignKey(x=>x.SuspeitoId)
                 .WillCascadeOnDelete(false);
 
         }

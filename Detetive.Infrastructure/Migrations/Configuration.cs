@@ -17,7 +17,7 @@ namespace Detetive.Infrastructure.Migrations
         {
 
             if (!context.Armas.Any())
-                context.Armas.AddOrUpdate(x => x.ID,
+                context.Armas.AddOrUpdate(x => x.Id,
                     new Arma("Fusioncutter"),
                     new Arma("Wrist Rockets"),
                     new Arma("Flamethower "),
@@ -31,7 +31,7 @@ namespace Detetive.Infrastructure.Migrations
                 );
 
             if (!context.Locais.Any())
-                context.Locais.AddOrUpdate(x => x.ID,
+                context.Locais.AddOrUpdate(x => x.Id,
                 new Local("Ahch-To"),
                 new Local("Alderaan"),
                 new Local("Bespin"),
@@ -49,7 +49,7 @@ namespace Detetive.Infrastructure.Migrations
             );
 
             if (!context.Suspeitos.Any())
-                context.Suspeitos.AddOrUpdate(x => x.ID,
+                context.Suspeitos.AddOrUpdate(x => x.Id,
                 new Suspeito("Darth Vader"),
                 new Suspeito("Darth Maul"),
                 new Suspeito("Darth Sidious"),
@@ -65,7 +65,7 @@ namespace Detetive.Infrastructure.Migrations
 
             if (!context.Casos.Any())
             {
-                context.Casos.AddOrUpdate(x => x.ID, new Caso(1, 1, 1));
+                context.Casos.AddOrUpdate(x => x.Id, new Caso(1, 1, 1));
             }
 
             context.SaveChanges();

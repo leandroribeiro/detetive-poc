@@ -32,7 +32,7 @@ namespace Detetive.WebAPI.Tests
 
             var casoResponse = (CasoResponseModel) okResult.Value;
 
-            Assert.True(casoResponse.ID > 0, "casoResponse.ID > 0");
+            Assert.True(casoResponse.Id > 0, "casoResponse.Id > 0");
             Assert.False(string.IsNullOrEmpty(casoResponse.DataAbertura), "string.IsNullOrEmpty(casoResponse.DataAbertura)");
         }
 

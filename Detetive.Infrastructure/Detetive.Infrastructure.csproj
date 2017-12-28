@@ -59,6 +59,10 @@
     <Compile Include="Migrations\201707120230146_EstruturaInicial.Designer.cs">
       <DependentUpon>201707120230146_EstruturaInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712281455040_AdicionandoPropriedadesDeAuditoria.cs" />
+    <Compile Include="Migrations\201712281455040_AdicionandoPropriedadesDeAuditoria.Designer.cs">
+      <DependentUpon>201712281455040_AdicionandoPropriedadesDeAuditoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +87,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707120230146_EstruturaInicial.resx">
       <DependentUpon>201707120230146_EstruturaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712281455040_AdicionandoPropriedadesDeAuditoria.resx">
+      <DependentUpon>201712281455040_AdicionandoPropriedadesDeAuditoria.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
