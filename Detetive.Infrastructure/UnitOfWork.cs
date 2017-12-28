@@ -12,7 +12,7 @@ using Detetive.Infrastructure.Repositories;
 
 namespace Detetive.Infrastructure
 {
-    public class UnitOfWork : IUnitOfWork, IDisposable
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly DetetiveContext _context;
 
