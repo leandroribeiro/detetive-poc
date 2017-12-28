@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace Detetive.Domain.Entities
 {
-    public class Suspeito
+    public class Suspeito : Entity<int>
     {
         private const string CULTURE = "pt-BR";
 
@@ -19,7 +19,6 @@ namespace Detetive.Domain.Entities
             Nome = textInfo.ToTitleCase(nome.ToLower().Trim());
         }
 
-        public int ID { get; set; }
         public ICollection<Caso> Casos { get; set; }
     }
 }

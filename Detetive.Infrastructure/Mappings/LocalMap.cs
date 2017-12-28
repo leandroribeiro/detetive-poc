@@ -9,7 +9,7 @@ namespace Detetive.Infrastructure
         {
             this.ToTable("Locais");
 
-            this.HasKey<int>(a => a.ID);
+            this.HasKey<int>(a => a.Id);
 
             this.Property(a => a.Nome)
                 .IsRequired();

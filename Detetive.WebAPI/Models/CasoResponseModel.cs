@@ -8,7 +8,7 @@ namespace Detetive.WebAPI.Models
 {
     public class CasoResponseModel
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string DataAbertura { get; set; }
 
         public CasoResponseModel(Caso model)
@@ -18,7 +18,7 @@ namespace Detetive.WebAPI.Models
 
         private void Create(Caso model)
         {
-            this.ID = model.ID;
+            this.Id = model.Id;
             this.DataAbertura = model.DataAbertura.ToString("dd/MM/yyyy");
         }
     }

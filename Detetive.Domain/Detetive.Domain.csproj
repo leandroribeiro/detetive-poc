@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Entities\Arma.cs" />
     <Compile Include="Entities\Caso.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\IEntity.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Repositories\IArmaRepository.cs" />
     <Compile Include="Repositories\ICasoRepository.cs" />

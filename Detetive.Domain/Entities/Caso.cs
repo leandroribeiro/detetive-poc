@@ -2,14 +2,14 @@
 
 namespace Detetive.Domain.Entities
 {
-    public class Caso
+    public class Caso : Entity<int>
     {
         protected Caso()
         {
             
         }
 
-        public Caso(int suspeitoId, int armaId, int localId) : this(new Suspeito { ID = suspeitoId }, new Local() { ID = localId }, new Arma() { ID = armaId })
+        public Caso(int suspeitoId, int armaId, int localId) : this(new Suspeito { Id = suspeitoId }, new Local() { Id = localId }, new Arma() { Id = armaId })
         {
 
         }
@@ -24,29 +24,28 @@ namespace Detetive.Domain.Entities
             this.DataAbertura = DateTime.Now;
 
             this.Suspeito = suspeito;
-            this.SuspeitoID = suspeito.ID;
+            this.SuspeitoId = suspeito.Id;
 
             this.Local = local;
-            this.LocalID = local.ID;
+            this.LocalId = local.Id;
 
             this.Arma = arma;
-            this.ArmaID = arma.ID;
+            this.ArmaId = arma.Id;
 
             AtribuirTestemunha(testemunha);
 
         }
 
-        public int ID { get; set; }
         public DateTime DataAbertura { get; set; }
 
         public virtual Suspeito Suspeito { get; set; }
-        public int SuspeitoID { get; set; }
+        public int SuspeitoId { get; set; }
 
         public virtual Local Local { get; set; }
-        public int LocalID { get; set; }
+        public int LocalId { get; set; }
 
         public virtual Arma Arma { get; set; }
-        public int ArmaID { get; set; }
+        public int ArmaId { get; set; }
 
         public Testemunha Testemunha { get; set; }
 
