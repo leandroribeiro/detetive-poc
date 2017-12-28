@@ -1,48 +1,40 @@
 ﻿using Detetive.Domain.Entities;
-using Detetive.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Detetive.Domain.Services
 {
     public class CasoService : ICasoService
     {
-        private readonly ICasoRepository _casoRepository;
-        private readonly ISuspeitoRepository _suspeitoRepository;
-        private readonly IArmaRepository _armaRepository;
-        private readonly ILocalRepository _localRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CasoService(ICasoRepository casoRepository, ISuspeitoRepository suspeitoRepository, IArmaRepository armaRepository, ILocalRepository localRepository)
+        public CasoService(IUnitOfWork unitOfWork)
         {
-            this._casoRepository = casoRepository;
-            this._suspeitoRepository = suspeitoRepository;
-            this._armaRepository = armaRepository;
-            this._localRepository = localRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public Caso IniciarNovo()
         {
-            var suspeito = _suspeitoRepository.ObterAleatorio();
-            var local = _localRepository.ObterAleatorio();
-            var arma = _armaRepository.ObterAleatorio();
+            var suspeito = _unitOfWork.SuspeitoRepository.GetRandom();
+            var local = _unitOfWork.LocalRepository.GetRandom();
+            var arma = _unitOfWork.ArmaRepository.GetRandom();
             var testemunha = new Testemunha();
 
             var caso = new Caso(suspeito, local, arma, testemunha);
 
-            _casoRepository.Inserir(caso);
-            
+            _unitOfWork.CasoRepository.Insert(caso);
+            _unitOfWork.Commit();
+
 
             return caso;
         }
 
         public int InterrogarTestemunha(int casoID, int armaID, int localID, int suspeitoID)
         {
-            var suspeito = _suspeitoRepository.Obter(suspeitoID);
-            var local = _localRepository.Obter(localID);
-            var arma = _armaRepository.Obter(armaID);
+            var suspeito = _unitOfWork.SuspeitoRepository.GetByID(suspeitoID);
+            var local = _unitOfWork.LocalRepository.GetByID(localID);
+            var arma = _unitOfWork.ArmaRepository.GetByID(armaID);
 
             var teoria = new Teoria(suspeito, local, arma);
 
@@ -51,7 +43,7 @@ namespace Detetive.Domain.Services
 
         public int InterrogarTestemunha(int casoID, Teoria teoria)
         {
-            var caso = _casoRepository.Obter(casoID);
+            var caso = _unitOfWork.CasoRepository.GetByID(casoID);
 
             return InterrogarTestemunha(caso, teoria);
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,28 +10,10 @@ using System.Data.Entity.SqlServer;
 
 namespace Detetive.Infrastructure.Repositories
 {
-    public class LocalRepository : ILocalRepository
+    public class LocalRepository : Repository<Local>, ILocalRepository
     {
-        private DetetiveContext _context;
-
-        public LocalRepository(DetetiveContext context)
+        public LocalRepository(DbContext context) : base(context)
         {
-            _context = context;
-        }
-
-        public Local Obter(int localID)
-        {
-            return _context.Locais.FirstOrDefault(x => x.ID == localID);
-        }
-
-        public IEnumerable<Local> Obter()
-        {
-            return _context.Locais.ToList();
-        }
-
-        public Local ObterAleatorio()
-        {
-            return _context.Locais.OrderBy(o => Guid.NewGuid()).First();
         }
     }
 }
